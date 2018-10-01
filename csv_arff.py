@@ -8,6 +8,7 @@ if len(sys.argv) >= 2:
     filename = sys.argv[1]
 else:
     print("You must enter a file name to covnert.")
+    exit(1)
 
 def output_header(output_file):
     output_file.write("@Relation faces\n")

@@ -12,7 +12,7 @@ else:
 
 def output_header(output_file):
     output_file.write("@Relation faces\n")
-    output_file.write("@ATTRIBUTE emotion {angry,disgust,fear,happy,neutral,sad,surprise}\n")
+    output_file.write("@ATTRIBUTE emotion {angry,disgust,fear,happy,neutral,sad,suprise}\n")
     for x in range(2305):
         output_file.write("@ATTRIBUTE pixel"+str(x)+" numeric\n")
     output_file.write("@DATA\n")

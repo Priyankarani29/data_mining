@@ -12,3 +12,4 @@ source weka_env/bin/activate
 pip3 install -r requirements.txt
 
 Examples on how to use the python3 weka wrapper are here: https://fracpete.github.io/python-weka-wrapper/examples.html
+

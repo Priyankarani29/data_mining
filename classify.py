@@ -11,7 +11,7 @@ try:
     jvm.start()
     
     loader = Loader(classname="weka.core.converters.ArffLoader")
-    data = loader.load_file(data_dir + "fer2019.arff")
+    data = loader.load_file(data_dir + "fer2018.arff")
     data.class_is_first()
 
     # print(data)

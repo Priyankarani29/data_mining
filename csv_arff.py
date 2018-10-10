@@ -4,15 +4,36 @@ import sys
 import os
 import csv
 
-if len(sys.argv) >= 2:
+CMD_1 = "--skip"
+
+if len(sys.argv) >= 3:
+    command = sys.argv[1]
+    filename = sys.argv[2]
+    filename2 = os.path.basename(filename)
+    emotion_name=filename2[7:-4]
+
+    if(command!=CMD_1):
+        print("Available commands: "+CMD_1)
+
+elif len(sys.argv) >= 2:
     filename = sys.argv[1]
 else:
     print("You must enter a file name to covnert.")
     exit(1)
 
 def output_header(output_file):
+    emotions_full = "{angry,disgust,fear,happy,neutral,sad,suprise}"
+
     output_file.write("@Relation faces\n")
-    output_file.write("@ATTRIBUTE emotion {angry,disgust,fear,happy,neutral,sad,suprise}\n")
+
+    
+    if(command==CMD_1):
+        emotion_string = str.format("@ATTRIBUTE emotion {0}\n",emotion_name)
+    else:
+        emotion_string = str.format("@ATTRIBUTE emotion {0}\n",emotions_full)
+
+    output_file.write(emotion_string)
+
     for x in range(2304):
         output_file.write("@ATTRIBUTE pixel"+str(x)+" numeric\n")
     output_file.write("@DATA\n")
@@ -44,7 +65,15 @@ def get_convert_data(input_file):
             skip_firstline = False
             continue
 
-        return_row = convert_emotion(row[0])
+        return_row=""
+
+        if(command==CMD_1):
+            if(row[0]=="0"):
+                continue
+            return_row = emotion_name
+        else:
+            return_row = convert_emotion(row[0])
+
         pixel_array = row[1].split(" ")
 
         for pixel in pixel_array:

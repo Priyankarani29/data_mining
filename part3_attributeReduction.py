@@ -37,10 +37,12 @@ def iterate(filenameIn, filenameOut): # iterate through pixels of input file
 	
 	for i in range(576):
 		output.write("@ATTRIBUTE pixel" + str(i) +" numeric\n")
-
+	
 	for i in input: # iterate through input file to find line before data begins
 		if i == "@DATA\n":
 			break
+	
+	output.write("@DATA\n")
 
 	for input_line in input:
 		#line = input.readline() # read next line (corresponds to one image)

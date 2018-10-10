@@ -16,6 +16,7 @@ if len(sys.argv) >= 3:
         print("Available commands: "+CMD_1)
 
 elif len(sys.argv) >= 2:
+    command=""
     filename = sys.argv[1]
 else:
     print("You must enter a file name to covnert.")

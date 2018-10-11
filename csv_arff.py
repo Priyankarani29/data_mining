@@ -24,12 +24,13 @@ else:
 
 def output_header(output_file):
     emotions_full = "{angry,disgust,fear,happy,neutral,sad,suprise}"
+    emotions_skip = "{other,"+emotion_name+"}"
 
     output_file.write("@Relation faces\n")
 
     
     if(command==CMD_1):
-        emotion_string = str.format("@ATTRIBUTE emotion {{{0}}}\n",emotion_name)
+        emotion_string = str.format("@ATTRIBUTE emotion {0}\n",emotions_skip)
     else:
         emotion_string = str.format("@ATTRIBUTE emotion {0}\n",emotions_full)
 
@@ -70,8 +71,9 @@ def get_convert_data(input_file):
 
         if(command==CMD_1):
             if(row[0]=="0"):
-                continue
-            return_row = emotion_name
+                return_row = "other"
+            else:
+                return_row = emotion_name
         else:
             return_row = convert_emotion(row[0])
 

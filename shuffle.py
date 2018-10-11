@@ -25,7 +25,7 @@ def randomData():
     seenList = []
     num_lines = sum(1 for line in open("data.arff",'r'))
 
-    while(i <= num_lines):
+    while(i < num_lines):
         randomN = random.randint(1,num_lines)
         seenList.append(randomN)
         if randomN in seenList == True:

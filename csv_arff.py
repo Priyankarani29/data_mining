@@ -29,7 +29,7 @@ def output_header(output_file):
 
     
     if(command==CMD_1):
-        emotion_string = str.format("@ATTRIBUTE emotion {0}\n",emotion_name)
+        emotion_string = str.format("@ATTRIBUTE emotion {{{0}}}\n",emotion_name)
     else:
         emotion_string = str.format("@ATTRIBUTE emotion {0}\n",emotions_full)
 

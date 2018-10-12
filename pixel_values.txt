@@ -1,1 +1,7 @@
-angry:344,320,351,368,396,326,327,350,343,395
+angry_R:
+disgust_R:
+fear_R:
+happy_R:
+neutral_R:
+sad_R:
+surprise_R:

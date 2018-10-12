@@ -20,7 +20,8 @@ def calculate(pixelList): # Returns average value of a list of pixels
 	total = 0
 	for i in pixelList: 
 		total += i # add all pixel values together
-		total = total/len(pixelList)
+	
+	total = total/len(pixelList)
 	return str(int(total)) # divide by number of pixels for average
 
 

@@ -1,7 +1,0 @@
-angry_R:
-disgust_R:
-fear_R:
-happy_R:
-neutral_R:
-sad_R:
-surprise_R:

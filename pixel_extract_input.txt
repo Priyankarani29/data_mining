@@ -1,8 +1,0 @@
-0,1,2,3,4,5,6,7,8,9,10,11,12,13
-fer2018/fer2018angry.reduced.arff
-fer2018/fer2018disgust.reduced.arff
-fer2018/fer2018fear.reduced.arff
-fer2018/fer2018happy.reduced.arff
-fer2018/fer2018neutral.reduced.arff
-fer2018/fer2018sad.reduced.arff
-fer2018/fer2018surprise.reduced.arff

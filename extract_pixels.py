@@ -12,7 +12,7 @@ else:
     exit(1)
 
 def output_header(output_file,pixel_range):
-    emotions_full = "{angry,disgust,fear,happy,neutral,sad,suprise}"
+    emotions_full = "{angry,disgust,fear,happy,neutral,sad,surprise}"
 
     output_file.write("@Relation faces\n")
 
@@ -33,7 +33,7 @@ def open_files(filename):
     except:
         print("Could not open input file.")
 
-    output_file = "transformed_"+str(number)+".arff"
+    output_file = "fer2018/transformed_arffs/transformed_"+str(number)+".arff"
 
     try:
         output_file = open(output_file,"x")
@@ -56,6 +56,9 @@ def extract_pixels(input_file, pixels_to_extract):
         input_line_split = input_line.split(",")
 
         return_row = input_line_split[0]
+
+        if(return_row=="other"):
+            continue
 
         for pixel in pixels_to_extract:
             return_row += ","+str(input_line_split[int(pixel)+1])

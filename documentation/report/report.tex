@@ -118,7 +118,7 @@
 \subsection{Task 1}
 
 
-The first task was to convert the CSV files into the WEKA specific Attribute-Relation File Format (ARFF) \cite{wakito2008}. To do this, we used Python to write a script ``csv\_arff.py'' which accepts as input a CSV file.\\
+The first task was to convert the CSV files into the WEKA specific Attribute-Relation File Format (ARFF) \cite{wakito2008}. To do this, we used Python to write a script ``\textbf{csv\_arff.py}'' which accepts as input a CSV file.\\
 
 The script skips the first line of the input file to ignore the header information. Then we use Python's built-in CSV library to parse one row at a time and split the values up into a list. We take the first value of the list and convert it to a string representing the emotion. We take the second value string and split it into spaces to create an array of pixel values. From this, we create a string representing each instance, formatted to suit the .arff file and add it to a list for output. We then write out the header information to the .arff file and for each item in the output list write it to a new line in the .arff file.
 
@@ -128,13 +128,13 @@ The script skips the first line of the input file to ignore the header informati
 For this part of the coursework, we decided that it would be better to create two different scripts for the randomisation of the data we are working with throughout the course these include;
 
 \begin{enumerate}
-	\item shuffle.py
-	\item makeR.py
+	\item \textbf{shuffle.py}
+	\item \textbf{makeR.py}
 \end{enumerate}
 
-The shuffle.py program works on any .arff and is used to swap entries in the data of that particular file. By doing this, it results in no loss of any data, however, the position of each data entry changes which removes any bias. I.e. if you trained the model one after the other in the original file and the file which was created in such a manner that the properties of the predecessor data entry affected the following entry then this is the bias which will be removed by shuffle.py.\\
+The \textbf{shuffle.py} program works on any .arff and is used to swap entries in the data of that particular file. By doing this, it results in no loss of any data, however, the position of each data entry changes which removes any bias. I.e. if you trained the model one after the other in the original file and the file which was created in such a manner that the properties of the predecessor data entry affected the following entry then this is the bias which will be removed by shuffle.py.\\
 
-makeR.py works by making one new file from all the data entries from each fer2018EmotionX arff file combining them and creating a reliable dataset where there are equal amounts of entries from each emotion file. This is achieved by allowing the user to select the data size they want and checking that is a modulo of 7. This produces a robust dataset where there could perhaps be issues with more entries of one emotion than another which may affect the learning of the model. Using this with the shuffle in our opinion was the best practice for making good data samples that are randomised.\\
+\textbf{makeR.py} works by making one new file from all the data entries from each fer2018EmotionX arff file combining them and creating a reliable dataset where there are equal amounts of entries from each emotion file. This is achieved by allowing the user to select the data size they want and checking that is a modulo of 7. This produces a robust dataset where there could perhaps be issues with more entries of one emotion than another which may affect the learning of the model. Using this with the shuffle in our opinion was the best practice for making good data samples that are randomised.\\
 
 By shuffling and taking random samples of the data files, we can say that we serve the idea of reducing variance and making sure that the data model stays general and we reduce the risk of overfitting. By taking a fair amount of data entries from each EmotionX file, we can say that our training, testing and validation are more representative of the data-set as a whole.\\
 

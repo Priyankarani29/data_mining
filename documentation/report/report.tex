@@ -143,9 +143,11 @@ By shuffling and taking random samples of the data files, we can say that we ser
 
 \subsection{Task 3}
 
-Cameron Explain\\
+For our implementation we increased the “heap” size of \textit{WEKA} to 4GB, allowing us to use the whole data set rather than just a smaller collection of the data entries. However, due to the large number of attributes for each image (2305), analysis of Nearest neighbour Algorithm performed on the dataset showed that it yielded an accuracy of around 62\% correctly classified instances. To achieve a higher accuracy, we decided to reduce the number of attributes for each image by a factor of 4. This aimed to filter the data and reduce the noise of images.\\
 
-For our implementation we increased the “heap” size of \textit{WEKA} to 4GB allowing us to use the whole data set rather than just a smaller collection of the data entries.\\ 
+To reduce the number of attributes, we took the average value of a quadrant of four pixels and stored this as a single value. This process was repeated for every quadrant in each image. This technique is synonymous with reducing the resolution of the images.\\
+
+We implemented this by writing the Python script \textbf{part3_attributeReduction.py}. The output file contained 577 attributes per instance instead of 2305. The script iterated over each instance in the input file, calculating the average value of quadrants of four pixels, before writing the new value to the output file.\\
 
 
 \section{Tasks 4, 5, 6 and 7}

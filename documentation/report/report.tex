@@ -135,7 +135,7 @@ For this part of the coursework, we decided that it would be better to create tw
 	\item \textbf{makeR.py}
 \end{enumerate}
 
-The \textbf{shuffle.py} program works on any .arff and is used to swap entries in the data of that particular file. By doing this, it results in no loss of any data, however, the position of each data entry changes which removes any bias. I.e. if you trained the model one after the other in the original file and the file which was created in such a manner that the properties of the predecessor data entry affected the following entry then this is the bias which will be removed by shuffle.py.\\
+The \textbf{shuffle.py} program works on any .arff and is used to swap entries in the data of that particular file. By doing this, it results in no loss of any data; however, the position of each data entry changes which removes any bias. I.e. if you trained the model one after the other in the original file and the file which was created in such a manner that the properties of the predecessor data entry affected the following entry then this is the bias which will be removed by shuffle.py.\\
 
 \textbf{makeR.py} works by making one new file from all the data entries from each fer2018EmotionX arff file combining them and creating a reliable dataset where there are equal amounts of entries from each emotion file. This is achieved by allowing the user to select the data size they want and checking that is a modulo of 7. This produces a robust dataset where there could perhaps be issues with more entries of one emotion than another which may affect the learning of the model. Using this with the shuffle in our opinion was the best practice for making good data samples that are randomised.\\
 
@@ -147,14 +147,14 @@ For our implementation we increased the “heap” size of \textit{WEKA} to 4GB,
 
 To reduce the number of attributes, we took the average value of a quadrant of four pixels and stored this as a single value. This process was repeated for every quadrant in each image. This technique is synonymous with reducing the resolution of the images.\\
 
-We implemented this by writing the Python script ``\textbf{part3\_attributeReduction.py}''. The output file contained 577 attributes per instance instead of 2305. The script iterated over each instance in the input file, calculating the average value of quadrants of four pixels, before writing the new value to the output file.\\
+We implemented this by writing the Python script ``\textbf{part3\_attributeReduction.py}''. The output file contained 577 attributes per instance instead of 2305. The script iterated over each instance in the input file, calculating the average value of quadrants of four pixels, before writing the new values to the output file.\\
 
 \newpage
 \section{Tasks 4, 5, 6 and 7}
 
 \subsection{Task 4 - Classification: Performance of the Nearest Neighbour Algorithm on the given data set}
 
-After we had reduced our number of attributes we also normalised the pixel values using the \textit{WEKA} filter. The motivation for this is that the pixel values can vary over a wide range (0-255) and the K-nearest neighbour algorithm works by looking at the nearness of other data points typically based on euclidean distance. Therefore normalization allows for more accurate classification by bringing the values into a smaller range (0-1).\\
+After we had reduced our number of attributes we also normalised the pixel values using the \textit{WEKA} filter. The motivation for this is that the pixel values can vary over a wide range (0-255) and the K-nearest neighbour algorithm works by looking at the nearness of other data points typically based on Euclidean distance. Therefore normalisation allows for more accurate classification by bringing the values into a smaller range (0-1).\\
 
 During Task 3 our solution to the task allowed us to reduce the “noise” of the images. Thus because of this we did not need to add another \textit{WEKA} filter as we essentially created our own implementation of a “noise reduction” filter.\\ 
 
@@ -235,7 +235,7 @@ The resulting classifier would be poorly trained as the data would be grouped by
 If there was a cross correlation between each image there would be no way to classify which emotion is which. If we imagine that the “strongest” pixels were always the same or close then the classifier would experience a high error rate as each entry regardless of emotion would share the same values that make them distinguishable.\\ 
 
 
-\textbf{Other methods we could of tried? }\\
+\textbf{Other methods we could have tried? }\\
 
 Two possible methods appear when thinking about image classification:
 
@@ -244,17 +244,17 @@ Two possible methods appear when thinking about image classification:
 	\item Using different data
 \end{enumerate}
 
-When working with any data mining set it is apparent that there are many different models that could be used to extract the data you are looking for. For example in this project we could of implemented a Neural Network where we feed the network line by line training data and then have that line “classed” as a certain emotion. Afterwards we could insert our fer2018 datafiles and achieve a different type of classifier for the images.\\
+When working with any data mining set it is apparent that there are many different models that could be used to extract the data you are looking for. For example in this project we could have implemented a Neural Network where we feed the network line by line training data and then have that line “classed” as a certain emotion. Afterwards we could insert our fer2018 datafiles and achieve a different type of classifier for the images.\\
 
-The second aspect we could of tested would be to use different data i.e. instead of pixel data we could of used ratio data where we feed the classifier attributes such as the width between eyebrows, the height between the left eye and the left lip etc.\\ 
+The second aspect we could have tested would be to use different data i.e. instead of pixel data we could have used ratio data where we feed the classifier attributes such as the width between eyebrows, the height between the left eye and the left lip etc.\\ 
 
 In general practice we could assume these attributes may give similar or even greater results for classifying emotions from images.\\
 
 \textbf{Would there be more accuracy by using a Neural Network for this type of project?}\\
 
-In 2015 there was an experiment done trying to determine if combining a Neural Network and K- Nearest Neighbour models would produce better classification results. The experiment was run on ratios as attributes rather than pixel values as our own. However, during this experiment the Neural Network showed a better classification average of 0.95\%. \cite{hai_2015}.\\
+In 2015, an experiment was performed to determine if combining a Neural Network and K- Nearest Neighbour models would produce better classification results. The experiment was run on ratios as attributes rather than pixel values as our own. However, during this experiment the Neural Network showed a better classification average of 0.95\%. \cite{hai_2015}.\\
 
-We can assume we had implemented a Neural Network rather than K-Nearest Neighbour we could assume there would be an increase of accuracy in our classification.\\
+We can assume that had we implemented a Neural Network rather than K-Nearest Neighbour there would be an increase of accuracy in our classification.\\
 
 
 \section{Masters Question (For our own understanding)}

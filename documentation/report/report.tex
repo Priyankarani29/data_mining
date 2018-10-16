@@ -113,13 +113,16 @@
 \end{center}
 \end{titlepage}
 
+\section*{Contributions}
+
+All group members involved contributed equally to this assignment.
+
 \section{Tasks 1, 2 \& 3}
 
 \subsection{Task 1}
 
 
 The first task was to convert the CSV files into the WEKA specific Attribute-Relation File Format (ARFF) \cite{wakito2008}. To do this, we used Python to write a script ``\textbf{csv\_arff.py}'' which accepts as input a CSV file.\\
-
 The script skips the first line of the input file to ignore the header information. Then we use Python's built-in CSV library to parse one row at a time and split the values up into a list. We take the first value of the list and convert it to a string representing the emotion. We take the second value string and split it into spaces to create an array of pixel values. From this, we create a string representing each instance, formatted to suit the .arff file and add it to a list for output. We then write out the header information to the .arff file and for each item in the output list write it to a new line in the .arff file.
 
 
@@ -138,13 +141,13 @@ The \textbf{shuffle.py} program works on any .arff and is used to swap entries i
 
 By shuffling and taking random samples of the data files, we can say that we serve the idea of reducing variance and making sure that the data model stays general and we reduce the risk of overfitting. By taking a fair amount of data entries from each EmotionX file, we can say that our training, testing and validation are more representative of the data-set as a whole.\\
 
-\newpage
-
 \subsection{Task 3}
 
-Cameron Explain\\
+For our implementation we increased the “heap” size of \textit{WEKA} to 4GB, allowing us to use the whole data set rather than just a smaller collection of the data entries. However, due to the large number of attributes for each image (2305), analysis of Nearest neighbour Algorithm performed on the dataset showed that it yielded an accuracy of around 62\% correctly classified instances. To achieve a higher accuracy, we decided to reduce the number of attributes for each image by a factor of 4. This aimed to filter the data and reduce the noise of images.\\
 
-For our implementation we increased the “heap” size of \textit{WEKA} to 4GB allowing us to use the whole data set rather than just a smaller collection of the data entries.\\ 
+To reduce the number of attributes, we took the average value of a quadrant of four pixels and stored this as a single value. This process was repeated for every quadrant in each image. This technique is synonymous with reducing the resolution of the images.\\
+
+We implemented this by writing the Python script \textbf{part3_attributeReduction.py}. The output file contained 577 attributes per instance instead of 2305. The script iterated over each instance in the input file, calculating the average value of quadrants of four pixels, before writing the new value to the output file.\\
 
 
 \section{Tasks 4, 5, 6 and 7}
